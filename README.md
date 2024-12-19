@@ -22,17 +22,18 @@ Monsters Shop es una aplicación web para gestionar una tienda de monstruos. Per
 
 Sigue estos pasos para configurar el proyecto en tu máquina local:
 
-1. Clona el repositorio:
+1. Fork el repositorio para tu repositorio
+2. Haz un clone del fork que ha hecho del proyecto:
     ```bash
-    git clone https://github.com/rcellas/monsters-shop.git
+    git clone https://github.com/tu-usuario/monsters-shop.git
     ```
 
-2. Navega al directorio del proyecto:
+3. Navega al directorio del proyecto:
     ```bash
     cd monsters-shop
     ```
 
-3. Instala las dependencias:
+4. Instala las dependencias:
     ```bash
     pnpm install
     ```
