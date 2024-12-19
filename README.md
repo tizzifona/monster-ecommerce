@@ -16,7 +16,6 @@ Monsters Shop es una aplicación web para gestionar una tienda de monstruos. Per
 - [Vite](https://vitejs.dev/)
 - [Chakra UI](https://chakra-ui.com/)
 - [React Router](https://reactrouter.com/)
-- [Context API](https://reactjs.org/docs/context.html)
 
 ## Instalación
 
