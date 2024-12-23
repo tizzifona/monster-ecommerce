@@ -40,7 +40,6 @@ function NavBar() {
               <Avatar
                 size="sm"
                 name="User Name"
-                src="https://bit.ly/broken-link"
               />
             }
             colorScheme="whiteAlpha"
