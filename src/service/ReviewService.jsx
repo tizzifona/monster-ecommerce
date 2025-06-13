@@ -3,7 +3,7 @@ import axios from 'axios';
 const apiReviewsUrl = 'http://localhost:8080/api/reviews';
 
 const getReviews = async (productId) => {
-  const response = await axios.get(`${apiReviewsUrl}?productId=${productId}`);
+  const response = await axios.get(`${apiReviewsUrl}/${productId}`);
   return response.data;
 };
 
