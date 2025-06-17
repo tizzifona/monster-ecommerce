@@ -6,6 +6,7 @@ import {
     HStack,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import RatingStars from "../RatingStars/RatingStars";
 import AddCart from "../Cart/AddCart";
 
@@ -87,5 +88,20 @@ function MonsterCard({monster}) {
     </Box>
   )
 }
+
+MonsterCard.propTypes = {
+    monster: PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        name: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        featured: PropTypes.bool,
+        reviews: PropTypes.arrayOf(
+            PropTypes.shape({
+                rating: PropTypes.number.isRequired,
+            })
+        ),
+    }).isRequired,
+};
 
 export default MonsterCard
