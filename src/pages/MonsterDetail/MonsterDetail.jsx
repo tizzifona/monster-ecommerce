@@ -28,6 +28,13 @@ const MonsterDetail = () => {
     fetchMonster();
   }, [monsterId]);
 
+  const handleReviewCreated = (newReview) => {
+    setMonster((prevMonster) => ({
+      ...prevMonster,
+      reviews: [...(prevMonster.reviews || []), newReview],
+    }));
+  };
+
   if (loading || reviewsLoading) {
     return <div>Loading...</div>;
   }
@@ -61,7 +68,7 @@ const MonsterDetail = () => {
           <ReviewMonsterDetail reviews={reviews} />
         </Box>
         <Box mt={10}>
-          <ReviewForm monsterId={monsterId} createReview={createReview} />
+          <ReviewForm monsterId={monsterId} createReview={createReview} onReviewCreated={handleReviewCreated} />
         </Box>
       </Box>
     </Flex>

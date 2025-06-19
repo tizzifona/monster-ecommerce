@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Heading, Input, Textarea, Button, HStack,Text } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 
-function ReviewForm({ monsterId, createReview }) {
+function ReviewForm({ monsterId, createReview, onReviewCreated }) {
   const [reviewText, setReviewText] = useState('');
   const [reviewerName, setReviewerName] = useState('');
   const [rating, setRating] = useState(0);
@@ -21,10 +22,13 @@ function ReviewForm({ monsterId, createReview }) {
     };
     
     try {
-      await createReview(newReview);
+      const newReviewData = await createReview(newReview);
       setReviewText('');
       setReviewerName('');
       setRating(0);
+      if (onReviewCreated) {
+        onReviewCreated(newReviewData);
+      }
     } catch (error) {
       console.error('Failed to create review:', error);
     }
@@ -84,5 +88,11 @@ function ReviewForm({ monsterId, createReview }) {
     </Box>
   );
 }
+
+ReviewForm.propTypes = {
+    monsterId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    createReview: PropTypes.func.isRequired,
+    onReviewCreated: PropTypes.func,
+};
 
 export default ReviewForm;
