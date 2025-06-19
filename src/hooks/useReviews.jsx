@@ -20,8 +20,10 @@ const useReviews = (monsterId) => {
     try {
       const createdReview = await createReviewService(newReview);
       setReviews((prevReviews) => [...prevReviews, createdReview]);
+      return createdReview;
     } catch (error) {
       console.error('Error creating review:', error);
+      throw error;
     }
   };
 
